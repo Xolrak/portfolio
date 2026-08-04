@@ -7,9 +7,11 @@
  * 
  * @module Pages/Index
  * @requires Layout - Componente raíz de maquetación HTML.
+ * @requires Card - Componente modular reusable para tarjetas de proyectos.
  */
 
 import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout>
@@ -45,40 +47,15 @@ import Layout from "../layouts/Layout.astro";
           <span aria-hidden="true"># //</span> MIS_PROYECTOS_ACTIVOS
         </h2>
 
-        <div class="flex flex-col sm:flex-row gap-5 overflow-hidden no-scrollbar pb-2 items-start">
-          
-          <!-- CARD: Deal Game Alert -->
-          <article style="animation-delay: 100ms;" class="animate-cascade w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] sm:min-w-75 bg-[#0d0d15] border border-cyan-500/50 rounded-xl p-5 sm:p-6 hover:border-cyan-400 transition-all flex flex-col justify-between relative overflow-hidden group shadow-lg shadow-cyan-950/30 sm:shrink-0">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="font-mono text-lg font-semibold text-slate-100 group-hover:text-cyan-300 transition-colors">
-                  Deal Game Alert
-                </h3>
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-500/40 shadow-[0_0_10px_rgba(6,182,212,0.15)] uppercase tracking-wider">
-                  <span class="relative flex h-2 w-2" aria-hidden="true">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
-                  </span>
-                  ACTIVO
-                </span>
-              </div>
-              <p class="text-slate-300 text-sm mb-5 leading-relaxed">
-                Bot automatizado para la monitorización y notificación de ofertas de videojuegos en tiempo real.
-              </p>
-            </div>
-            <div>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="text-xs font-mono bg-slate-900/90 text-cyan-300 px-2.5 py-1 rounded-md border border-slate-800">Python</span>
-                <span class="text-xs font-mono bg-slate-900/90 text-cyan-300 px-2.5 py-1 rounded-md border border-slate-800">SQLite</span>
-              </div>
-              <div class="flex gap-4 text-sm font-medium pt-2.5 border-t border-slate-800/80">
-                <a href="https://github.com/Xolrak/Deal-Game-Alert" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center gap-1">
-                  Ver Código →
-                </a>
-              </div>
-            </div>
-          </article>
-
+        <div class="flex flex-col sm:flex-row gap-5 overflow-x-auto no-scrollbar py-6 -my-6 px-2 -mx-2 items-start">
+          <Card 
+            title="Deal Game Alert"
+            description="Bot automatizado para la monitorización y notificación de ofertas de videojuegos en tiempo real."
+            tags={["Python", "SQLite"]}
+            githubUrl="https://github.com/Xolrak/Deal-Game-Alert"
+            status="ACTIVO"
+            animationDelay="100ms"
+          />
         </div>
       </section>
 
@@ -88,98 +65,31 @@ import Layout from "../layouts/Layout.astro";
           <span aria-hidden="true"># //</span> PROYECTOS_CONCLUIDOS
         </h2>
 
-        <div class="flex flex-col sm:flex-row gap-5 sm:overflow-x-auto pb-4 sm:scroll-smooth sm:snap-x sm:snap-mandatory items-start no-scrollbar">
-          
-          <!-- CARD 1: Roig Arena -->
-          <article style="animation-delay: 200ms;" class="animate-cascade w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] sm:min-w-75 bg-[#0d0d15] border border-slate-800 rounded-xl p-5 sm:p-6 hover:border-pink-500/60 transition-all flex flex-col justify-between shadow-lg shadow-cyan-950/10 group sm:shrink-0 sm:snap-start">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="font-mono text-lg font-semibold text-slate-100 group-hover:text-pink-400 transition-colors">
-                  Roig Arena - Sistema de tickets
-                </h3>
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-950/40 text-emerald-300 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.15)] uppercase tracking-wider">
-                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true"></span>
-                  CONCLUIDO
-                </span>
-              </div>
-              <p class="text-slate-300 text-sm mb-5 leading-relaxed">
-                Proyecto hecho en el segundo curso de DAW para la simulación y gestión de compras de entradas.
-              </p>
-            </div>
-            <div>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">PHP/Laravel</span>
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">MySQL</span>
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Docker</span>
-              </div>
-              <div class="flex gap-4 text-sm font-medium pt-2.5 border-t border-slate-800/60">
-                <a href="https://github.com/Xolrak/Roig-Arena" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition-colors inline-flex items-center gap-1">
-                  Ver Código →
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- CARD 2: Smart Nav Scroll -->
-          <article style="animation-delay: 300ms;" class="animate-cascade w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] sm:min-w-75 bg-[#0d0d15] border border-slate-800 rounded-xl p-5 sm:p-6 hover:border-pink-500/60 transition-all flex flex-col justify-between shadow-lg shadow-cyan-950/10 group sm:shrink-0 sm:snap-start">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="font-mono text-lg font-semibold text-slate-100 group-hover:text-pink-400 transition-colors">
-                  Smart Nav Scroll
-                </h3>
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-950/40 text-emerald-300 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.15)] uppercase tracking-wider">
-                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true"></span>
-                  CONCLUIDO
-                </span>
-              </div>
-              <p class="text-slate-300 text-sm mb-5 leading-relaxed">
-                Plugin para WordPress que oculta/muestra el menú según la dirección del scroll.
-              </p>
-            </div>
-            <div>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">WordPress</span>
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">JavaScript</span>
-              </div>
-              <div class="flex gap-4 text-sm font-medium pt-2.5 border-t border-slate-800/60">
-                <a href="https://github.com/Xolrak/Smart-Nav-Scroll" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition-colors inline-flex items-center gap-1">
-                  Ver Código →
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- CARD 3: Feria VLC -->
-          <article style="animation-delay: 400ms;" class="animate-cascade w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] sm:min-w-75 bg-[#0d0d15] border border-slate-800 rounded-xl p-5 sm:p-6 hover:border-pink-500/60 transition-all flex flex-col justify-between shadow-lg shadow-cyan-950/10 group sm:shrink-0 sm:snap-start">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="font-mono text-lg font-semibold text-slate-100 group-hover:text-pink-400 transition-colors">
-                  Feria VLC
-                </h3>
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-950/40 text-emerald-300 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.15)] uppercase tracking-wider">
-                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true"></span>
-                  CONCLUIDO
-                </span>
-              </div>
-              <p class="text-slate-300 text-sm mb-5 leading-relaxed">
-                Proyecto del primer curso de DAW para la gestión y consulta de eventos de la Feria de Valencia.
-              </p>
-            </div>
-            <div>
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Python</span>
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">MJML</span>
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">MySQL</span>
-                <span class="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Docker</span>
-              </div>
-              <div class="flex gap-4 text-sm font-medium pt-2.5 border-t border-slate-800/60">
-                <a href="https://github.com/Xolrak/feria_vlc" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition-colors inline-flex items-center gap-1">
-                  Ver Código →
-                </a>
-              </div>
-            </div>
-          </article>
-
+        <div class="flex flex-col sm:flex-row gap-5 sm:overflow-x-auto py-6 -my-6 px-2 -mx-2 sm:scroll-smooth sm:snap-x sm:snap-mandatory items-start no-scrollbar">
+          <Card 
+            title="Roig Arena - Sistema de tickets"
+            description="Proyecto hecho en el segundo curso de DAW para la simulación y gestión de compras de entradas."
+            tags={["PHP/Laravel", "MySQL", "Docker"]}
+            githubUrl="https://github.com/Xolrak/Roig-Arena"
+            status="CONCLUIDO"
+            animationDelay="200ms"
+          />
+          <Card 
+            title="Smart Nav Scroll"
+            description="Plugin para WordPress que oculta/muestra el menú según la dirección del scroll."
+            tags={["WordPress", "JavaScript"]}
+            githubUrl="https://github.com/Xolrak/Smart-Nav-Scroll"
+            status="CONCLUIDO"
+            animationDelay="300ms"
+          />
+          <Card 
+            title="Feria VLC"
+            description="Proyecto del primer curso de DAW para la gestión y consulta de eventos de la Feria de Valencia."
+            tags={["Python", "MJML", "MySQL", "Docker"]}
+            githubUrl="https://github.com/Xolrak/feria_vlc"
+            status="CONCLUIDO"
+            animationDelay="400ms"
+          />
         </div>
       </section>
 
@@ -196,7 +106,7 @@ import Layout from "../layouts/Layout.astro";
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
         
         <!-- Categoría: Backend -->
-        <div style="animation-delay: 500ms;" class="animate-cascade bg-[#0d0d15] border border-slate-800 rounded-xl p-5 sm:p-6">
+        <div style="animation-delay: 500ms;" class="animate-cascade glass-card rounded-xl p-5 sm:p-6">
           <h3 class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider mb-3"># Backend</h3>
           <ul class="text-slate-300 font-mono text-sm space-y-2">
             <li>• Python</li>
@@ -207,7 +117,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <!-- Categoría: Bases de Datos -->
-        <div style="animation-delay: 600ms;" class="animate-cascade bg-[#0d0d15] border border-slate-800 rounded-xl p-5 sm:p-6">
+        <div style="animation-delay: 600ms;" class="animate-cascade glass-card rounded-xl p-5 sm:p-6">
           <h3 class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider mb-3"># Bases de Datos</h3>
           <ul class="text-slate-300 font-mono text-sm space-y-2">
             <li>• Relacionales: PostgreSQL / MySQL</li>
@@ -216,7 +126,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <!-- Categoría: DevOps & Tools -->
-        <div style="animation-delay: 700ms;" class="animate-cascade bg-[#0d0d15] border border-slate-800 rounded-xl p-5 sm:p-6">
+        <div style="animation-delay: 700ms;" class="animate-cascade glass-card rounded-xl p-5 sm:p-6">
           <h3 class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider mb-3"># DevOps & Tools</h3>
           <ul class="text-slate-300 font-mono text-sm space-y-2">
             <li>• Docker / Contenedores</li>
@@ -231,7 +141,7 @@ import Layout from "../layouts/Layout.astro";
     <!-- 
       SECTION 5: FOOTER
     -->
-    <footer class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-sm font-mono">
+    <footer class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-sm font-mono">
       <p>© {new Date().getFullYear()} Carlos. Todos los derechos reservados.</p>
       
       <div class="flex gap-6">

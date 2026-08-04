@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  githubUrl: string;
+  status: 'ACTIVO' | 'CONCLUIDO';
+  animationDelay?: string;
+}
+
+const { title, description, tags, githubUrl, status, animationDelay = '100ms' } = Astro.props;
+const isActivo = status === 'ACTIVO';
+---
+
+<article 
+  style={`animation-delay: ${animationDelay};`} 
+  class={`animate-cascade ${isActivo ? 'glass-card' : 'glass-card-pink'} w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] sm:min-w-75 rounded-xl p-5 sm:p-6 flex flex-col justify-between group sm:shrink-0 sm:snap-start`}
+>
+  <div>
+    <div class="flex items-center justify-between mb-3">
+      <h3 class={`font-mono text-lg font-semibold text-slate-100 ${isActivo ? 'group-hover:text-cyan-300' : 'group-hover:text-pink-400'} transition-colors`}>
+        {title}
+      </h3>
+      <span class={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono uppercase tracking-wider ${
+        isActivo 
+          ? 'bg-cyan-950/40 text-cyan-300 border border-cyan-500/40 shadow-[0_0_10px_rgba(6,182,212,0.15)]' 
+          : 'bg-emerald-950/40 text-emerald-300 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.15)]'
+      }`}>
+        <span class={`h-2 w-2 rounded-full ${isActivo ? 'bg-cyan-400 animate-pulse' : 'bg-emerald-400'}`}></span>
+        {status}
+      </span>
+    </div>
+    <p class="text-slate-300 text-sm mb-5 leading-relaxed">{description}</p>
+  </div>
+  <div>
+    <div class="flex flex-wrap gap-2 mb-5">
+      {tags.map(tag => (
+        <span class="text-xs font-mono bg-slate-900/60 backdrop-blur-sm text-slate-300 px-2.5 py-1 rounded-md border border-white/5">{tag}</span>
+      ))}
+    </div>
+    <div class="flex gap-4 text-sm font-medium pt-2.5 border-t border-white/10">
+      <a href={githubUrl} target="_blank" rel="noopener noreferrer" class={`${isActivo ? 'text-cyan-400 hover:text-cyan-300' : 'text-pink-400 hover:text-pink-300'} transition-colors inline-flex items-center gap-1`}>
+        Ver Código →
+      </a>
+    </div>
+  </div>
+</article>

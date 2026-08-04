@@ -49,11 +49,18 @@ import Navbar from '../components/Navbar.astro';
 
         <!-- Script de inicialización: Preset NASA adaptado para captura de ventana global -->
         <script is:inline>
-            window.addEventListener('DOMContentLoaded', () => {
+            const initParticles = () => {
                 if (typeof particlesJS !== 'undefined') {
+                    // Ajuste dinámico: 60 partículas en móviles, 160 en escritorio
+                    const isMobile = window.innerWidth < 768;
+                    const particleCount = isMobile ? 60 : 160;
+                
                     particlesJS('particles-js', {
                         "particles": {
-                            "number": { "value": 160, "density": { "enable": true, "value_area": 800 } },
+                            "number": { 
+                                "value": particleCount, 
+                                "density": { "enable": true, "value_area": 800 } 
+                            },
                             "color": { "value": "#ffffff" },
                             "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
                             "opacity": { 
@@ -88,46 +95,15 @@ import Navbar from '../components/Navbar.astro';
                         "retina_detect": true
                     });
                 }
-            });
+            };
+        
+            // Inicialización segura tanto en carga directa como con Astro View Transitions
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                initParticles();
+            } else {
+                window.addEventListener('DOMContentLoaded', initParticles);
+            }
+            document.addEventListener('astro:page-load', initParticles);
         </script>
     </body>
 </html>
-
-<style is:global>
-  /**
-   * Reglas de tipografía global y animaciones CSS
-   */
-  body {
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  }
-  
-  .font-mono {
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* Keyframe para entrada en cascada (stagger fade-in) */
-  @keyframes fadeInCascade {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-cascade {
-    animation: fadeInCascade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-  }
-
-  /* Ocultación limpia de barras de scroll predeterminadas en carruseles */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
