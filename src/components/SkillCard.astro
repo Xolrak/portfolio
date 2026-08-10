@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  skills: string[];
+  animationDelay?: string;
+}
+
+const { title, skills, animationDelay = '0ms' } = Astro.props;
+---
+
+<div 
+  style={`animation-delay: ${animationDelay};`} 
+  class="animate-cascade glass-card rounded-xl p-5 sm:p-6"
+>
+  <h3 class="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider mb-3">
+    # {title}
+  </h3>
+  <ul class="text-slate-300 font-mono text-sm space-y-2">
+    {skills.map((skill) => (
+      <li>• {skill}</li>
+    ))}
+  </ul>
+</div>
