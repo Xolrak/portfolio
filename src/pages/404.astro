@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="min-h-screen flex items-center justify-center px-4 py-20 relative z-10">
+    <div class="max-w-xl w-full text-center">
+      
+      <!-- Card con efecto Glassmorphism -->
+      <div class="bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl p-8 md:p-12 shadow-2xl shadow-cyan-950/20">
+        
+        <!-- Tag decorativo de consola -->
+        <span class="inline-block font-mono text-xs font-semibold uppercase tracking-widest text-cyan-400 bg-cyan-950/60 border border-cyan-500/30 rounded-full px-3 py-1 mb-6">
+          Error 404 // Page Not Found
+        </span>
+
+        <!-- Título principal con gradiente -->
+        <h1 class="text-7xl md:text-8xl font-extrabold font-mono tracking-tight bg-linear-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent mb-4">
+          404
+        </h1>
+
+        <h2 class="text-xl md:text-2xl font-bold text-slate-100 mb-3">
+          ¿Te has perdido en el vacío?
+        </h2>
+
+        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-md mx-auto">
+          La ruta a la que intentas acceder no existe, ha sido movida o nunca existió.
+        </p>
+
+        <!-- Acciones principales -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="/"
+            class="w-full sm:w-auto font-mono text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-6 py-3 rounded-xl transition-all duration-200 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/40 hover:-translate-y-0.5"
+          >
+            &lt; Volver al inicio &gt;
+          </a>
+          
+          <a
+            href="mailto:carloscasta.dev@gmail.com"
+            class="w-full sm:w-auto font-mono text-sm font-medium text-slate-300 hover:text-white bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 px-6 py-3 rounded-xl transition-all duration-200"
+          >
+            Reportar problema
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Detalle sutil de consola al pie -->
+      <p class="font-mono text-xs text-slate-600 mt-6">
+        system_status: <span class="text-emerald-500">online</span> | route: <span class="text-rose-400">undefined</span>
+      </p>
+
+    </div>
+  </main>
+</Layout>
